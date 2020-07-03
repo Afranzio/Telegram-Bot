@@ -18,8 +18,11 @@ all_msg = get['result']
 messages = all_msg[-1]['message']['text']
 Chat_Id = all_msg[-1]['message']['chat']['id']
 
+print(messages)
+
 bot = chatbot.get_response(messages)
 
-response = url+token+'/sendMessage?chat_id={Chat_Id}&text={bot}'
+response = url+token+'/sendMessage?chat_id='+ str(Chat_Id)+'&text='+str(bot)
+print(response)
 if bot is not None:
     requests.get(response)
